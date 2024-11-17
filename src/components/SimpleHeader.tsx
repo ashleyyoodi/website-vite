@@ -34,7 +34,7 @@ export function HeaderSimple() {
       <Flex className={classes.inner}>
         <div className={classes.title}>
             <img 
-                src="/src/assets/migo2cropped.jpg"
+                src="public/static/img/migo2cropped.jpg"
                 className={classes.image}
             />
             <Text className={classes.text}> Yoodi</Text>

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Container, Group, Burger, Image, Text, TextInput } from '@mantine/core';
+import { Container, Group, Burger, Text } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import classes from './HeaderSimple.module.css';
 

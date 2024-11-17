@@ -1,0 +1,9 @@
+.content-wrapper {
+    margin: 10px;
+}
+
+.inner-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}

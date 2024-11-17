@@ -5,8 +5,9 @@ import { Text } from "@mantine/core";
 export default function Home() {
     return (
         <div>
-            <Text>test</Text>
-            <Text>test 2</Text>
+            <Text>
+                Welcome to my website!
+            </Text>
         </div>
     );
 }

@@ -1,7 +1,23 @@
 .header {
-    height: rem(56px);
+    height: auto;
     background-color: var(--mantine-color-body);
     border-bottom: rem(1px) solid light-dark(var(--mantine-color-gray-3), var(--mantine-color-dark-4));
+    padding: 5px 20px 5px 20px;
+  }
+
+  .title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .image {
+    width: 35px;
+    height: auto;
+  }
+
+  .text {
+    font-size: 37px;
   }
   
   .inner {
@@ -26,7 +42,7 @@
     }
   
     [data-mantine-color-scheme] &[data-active] {
-      background-color: var(--mantine-color-blue-filled);
+      background-color: #8c9b47;
       color: var(--mantine-color-white);
     }
   }

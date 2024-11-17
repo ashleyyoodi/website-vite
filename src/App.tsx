@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, RouterProvider, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import "@mantine/core/styles.css";
 import { Flex, MantineProvider} from "@mantine/core";

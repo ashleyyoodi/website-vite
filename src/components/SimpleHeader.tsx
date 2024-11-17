@@ -33,16 +33,14 @@ export function HeaderSimple() {
     <header className={classes.header}>
       <Flex className={classes.inner}>
         <div className={classes.title}>
-            <img 
-                src="/static/assets/migo2cropped.png"
-                className={classes.image}
-            />
-            <Text className={classes.text}> Yoodi</Text>
+          <img 
+              src="/static/assets/yoodimigo.png"
+              className={classes.image}
+          />
         </div>
-        <Group gap={5} visibleFrom="xs">
+        <Group className={classes.navigation} gap={5} visibleFrom="xs">
           {items}
         </Group>
-
         <Burger opened={opened} onClick={toggle} hiddenFrom="xs" size="sm" />
       </Flex>
     </header>

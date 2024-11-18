@@ -15,6 +15,12 @@
     justify-content: flex-start;
   }
 
+  .image-anchor {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+  }
+
   .image {
     height: 90%;
     width: 90%;

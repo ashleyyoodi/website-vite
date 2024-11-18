@@ -6,9 +6,9 @@ import { Link } from 'react-router-dom';
 
 const links = [
   { link: '/', label: 'Home' },
-  { link: '/about', label: 'About' },
+  { link: '/blog', label: 'Blog' },
   { link: '/photos', label: 'Photos' },
-  { link: '/coconut', label: 'Coconut' }
+  { link: '/about', label: 'About' }
 ];
 
 export function HeaderSimple() {
@@ -32,12 +32,12 @@ export function HeaderSimple() {
   return (
     <header className={classes.header}>
       <Flex className={classes.inner}>
-        <div className={classes.title}>
-          <img 
-              src="/static/assets/yoodimigo.png"
-              className={classes.image}
-          />
-        </div>
+        <a className={classes.title} href="/">
+            <img 
+                src="/static/assets/yoodimigo.png"
+                className={classes.image}
+            />
+        </a>
         <Group className={classes.navigation} gap={5} visibleFrom="xs">
           {items}
         </Group>

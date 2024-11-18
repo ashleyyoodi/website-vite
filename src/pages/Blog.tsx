@@ -7,7 +7,7 @@ export default function() {
 
     useEffect(() => {
         setIsLoading(true);
-        fetch('http://localhost:5000/blog-posts')
+        fetch('https://website-backend-beta-bay.vercel.app/blog-posts')
         .then(response => response.json())
         .then(data => {
             setMessage(data[0].text);

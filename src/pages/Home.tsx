@@ -16,7 +16,7 @@ export default function Home() {
                 <Text
                     id="welcome-text"
                 >
-                    Welcome to my website!
+                    Welcome to my website! &#127760;
                 </Text>
                 <br />
             </div>

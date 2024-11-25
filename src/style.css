@@ -8,7 +8,7 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
-    width: 100%;
+    width: 95%;
     height: 100%;
 }
 
@@ -53,7 +53,7 @@
 /* Blog */
 
 .blog-post {
-    width: 95%;
+    width: 100%;
 }
 
 .blog-date {
@@ -65,6 +65,57 @@
     background-color: #e6e8b0;
     border:  none;
     height: 1px;
+}
+
+
+/* Music */
+
+.accordian {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.accordian-item {
+    border: none;
+}
+
+.accordian-label {
+    font-size: 20px;
+    background-color: #e4e4e4;
+
+}
+
+.accordian-content {
+}
+
+.media-embed-container {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.music-comment {
+    width: 60%;
+}
+
+.soundcloud-embed {
+    font-size: 10px; 
+    color: #cccccc;
+    line-break: anywhere;
+    word-break: normal;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis; 
+    font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;
+    font-weight: 100;
+}
+
+.embedded-media-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding-top: 10px;
 }
 
 
@@ -92,6 +143,6 @@
 
 /* About */
 
-#yoyo {
+#selfie {
     width: 15%;
 }

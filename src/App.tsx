@@ -8,7 +8,7 @@ import Home from "./pages/Home.js";
 import About from "./pages/About.js";
 import Photos from "./pages/Photos.js";
 import Blog from "./pages/Blog.js";
-import LeafOverlay from "./components/LeafOverlay.js";
+import { Music } from "./pages/Music.js";
 
 export default function App() {
   return (
@@ -20,6 +20,7 @@ export default function App() {
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/blog" element={<Blog />} />
+                <Route path="/music" element={<Music />} />
                 <Route path="/photos" element={<Photos />} />
                 <Route path="/about" element={<About />} />
               </Routes>

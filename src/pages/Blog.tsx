@@ -30,27 +30,29 @@ export default function() {
     return (
         <div>
             <h2 className="page-header">Blog</h2>
-            { 
-                messages.map((message, index) => (
-                    <div className = "blog-post">
-                        <br />
-                        <Text>
-                            <span className="blog-date">{formatDate(message.created_date)}</span>
-                            <br /><br />
-                            {message.text}
-                        </Text>
-                        <br />
-                        {
-                            index !== messages.length-1 ? <hr className="post-divider" /> : null
-                        }
+            <div>
+                { 
+                    messages.map((message, index) => (
+                        <div className = "blog-post">
+                            <br />
+                            <Text>
+                                <span className="blog-date">{formatDate(message.created_date)}</span>
+                                <br /><br />
+                                {message.text}
+                            </Text>
+                            <br />
+                            {
+                                index !== messages.length-1 ? <hr className="post-divider" /> : null
+                            }
+                        </div>
+                    ))
+                }
+                { isLoading ?
+                    <div className="loader-container">
+                        <Loader color="blue" />
                     </div>
-                ))
-            }
-            { isLoading ?
-                <div className="loader-container">
-                    <Loader color="blue" />
-                </div>
-            : null }
+                : null }
+            </div>
         </div>
     );
 }

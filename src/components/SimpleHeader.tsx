@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 const links = [
   { link: '/', label: 'Home' },
   { link: '/blog', label: 'Blog' },
+  { link: '/music', label: 'Music'},
   { link: '/photos', label: 'Photos' },
   { link: '/about', label: 'About' }
 ];

@@ -7,9 +7,7 @@ export default function Home() {
 
     return (
         <div>
-            <div className="leaf-overlay">
-                <LeafOverlay></LeafOverlay>
-            </div>
+            <LeafOverlay></LeafOverlay>
             <div className="welcome-contents">
                 <img 
                     id="welcome-image"

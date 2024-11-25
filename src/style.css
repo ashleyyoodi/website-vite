@@ -1,7 +1,7 @@
 .content-wrapper {
     width: 100%;
     height: 100%;
-    margin: 23px;
+    padding: 23px;
 }
 
 .inner-content {
@@ -26,10 +26,6 @@
 }
 
 /* Home */
-
-.leaf-overlay {
-    top: -20px;
-}
 
 .welcome-contents {
     align-items: center;

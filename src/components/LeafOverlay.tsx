@@ -14,7 +14,7 @@ export default function LeafOverlay() {
                     id: i,
                     x: Math.random() * 100 + 'vw',
                     y: -20 + 'px',
-                    animationDelay: Math.random() * 5 + 's',
+                    animationDelay: (Math.random() * 5) + 's',
                     transform: 'rotateX(' + (Math.random() * (80-20) + 20)+ 'deg)'
                 });
             }

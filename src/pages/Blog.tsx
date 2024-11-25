@@ -16,23 +16,33 @@ export default function() {
     }, []);
 
     function formatDate(date: Date) {
-        let formattedDate = new Date(date).toLocaleString();
+        let formattedDate = new Date(date).toLocaleString("end-US", {
+                minute: "numeric",
+                hour: "numeric",
+                day: "numeric",
+                month: "long", 
+                year: "numeric"
+            }
+        );
         return formattedDate;
     }
-    
+
     return (
         <div>
             <h2 className="page-header">Blog</h2>
-            <br />  
             { 
-                messages.map((message) => (
+                messages.map((message, index) => (
                     <div className = "blog-post">
+                        <br />
                         <Text>
                             <span className="blog-date">{formatDate(message.created_date)}</span>
-                            <br />
+                            <br /><br />
                             {message.text}
                         </Text>
                         <br />
+                        {
+                            index !== messages.length-1 ? <hr className="post-divider" /> : null
+                        }
                     </div>
                 ))
             }

@@ -10,7 +10,7 @@
   
 @keyframes fall {
     100% {
-        transform: translateY(105vh);
+        transform: translateY(calc(100vh));
     }
 }
 

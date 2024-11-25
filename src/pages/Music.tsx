@@ -47,7 +47,7 @@ export function Music() {
 
     const youtubeEmbeds = youtubeLinks.map((link) => (
         <div className="media-embed-container">
-            <iframe width="40%" height="315" src={link.link} title="YouTube video player" frameBorder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <iframe width="40%" height="315" src={link.link} title="YouTube video player" frameBorder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
             <Text className="music-comment">{link.comment}</Text>
         </div>
     ));

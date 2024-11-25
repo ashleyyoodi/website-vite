@@ -3,17 +3,19 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "@mantine/core/styles.css";
 import { Flex, MantineProvider} from "@mantine/core";
 import { theme } from "./theme";
-import { HeaderSimple } from "./components/SimpleHeader";
+import SimpleHeader from "./components/SimpleHeader";
 import Home from "./pages/Home.js";
 import About from "./pages/About.js";
 import Photos from "./pages/Photos.js";
 import Blog from "./pages/Blog.js";
+import LeafOverlay from "./components/LeafOverlay.js";
 
 export default function App() {
   return (
   <MantineProvider theme={theme}>
         <BrowserRouter>
-          <HeaderSimple></HeaderSimple>
+          <LeafOverlay></LeafOverlay>
+          <SimpleHeader></SimpleHeader>
           <div className="content-wrapper">
             <Flex className="inner-content">
               <Routes>

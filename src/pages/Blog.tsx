@@ -19,14 +19,16 @@ export default function() {
         <div>
             <h2 className="page-header">Blog</h2>
             <br />  
-            { messages.map((message) => (
-                <div className = "blog-post">
-                    <Text>
-                        {message.text}
-                    </Text>
-                    <br />
-                </div>
-            ))}
+            { 
+                messages.map((message) => (
+                    <div className = "blog-post">
+                        <Text>
+                            {message.text}
+                        </Text>
+                        <br />
+                    </div>
+                ))
+            }
             { isLoading ?
                 <div className="loader-container">
                     <Loader color="blue" />

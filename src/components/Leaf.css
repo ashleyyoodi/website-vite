@@ -1,0 +1,35 @@
+.leaf-fall {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    /* background: green; */
+    animation: fall 8s linear infinite;
+    pointer-events: none;
+    transform-style: preserve-3d;
+  }
+  
+@keyframes fall {
+    100% {
+        transform: translateY(105vh);
+    }
+}
+
+.leaf-sway {
+    animation: sway 8s linear infinite;
+    animation-delay: 5s;
+    transform-style: preserve-3d;
+}
+@keyframes sway {
+    25% {
+        transform: translateX(-10px);
+    }
+    50% {
+        transform: translateX(10px);
+    }
+    75% {
+        transform: translateX(-10px);
+    }
+    100% {
+        transform: translateX(10px);
+    }
+}

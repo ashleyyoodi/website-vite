@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { Container, Group, Burger, Text, Flex, Image } from '@mantine/core';
+import { Group, Burger, Flex } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
-import classes from './HeaderSimple.module.css';
+import './SimpleHeader.css';
 import { Link } from 'react-router-dom';
 
 const links = [
@@ -11,7 +11,7 @@ const links = [
   { link: '/about', label: 'About' }
 ];
 
-export function HeaderSimple() {
+export default function SimpleHeader() {
   const [opened, { toggle }] = useDisclosure(false);
   const [active, setActive] = useState(findActivePage());
 
@@ -19,7 +19,7 @@ export function HeaderSimple() {
     <Link
       to={link.link}
       key={link.label}
-      className={classes.link}
+      className="link"
       data-active={active === link.link || undefined}
       onClick={() => {
         setActive(link.link);
@@ -30,15 +30,15 @@ export function HeaderSimple() {
   ));
 
   return (
-    <header className={classes.header}>
-      <Flex className={classes.inner}>
-        <a className={classes.title} href="/">
+    <header className="header">
+      <Flex className="inner">
+        <a className="title" href="/">
             <img 
                 src="/static/assets/yoodimigo.png"
-                className={classes.image}
+                className="image"
             />
         </a>
-        <Group className={classes.navigation} gap={5} visibleFrom="xs">
+        <Group className="navigation" gap={5} visibleFrom="xs">
           {items}
         </Group>
         <Burger opened={opened} onClick={toggle} hiddenFrom="xs" size="sm" />

@@ -25,6 +25,29 @@
     margin-top: 15%;
 }
 
+/* Home */
+
+.welcome-contents {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-top: 20px;
+}
+
+#welcome-image {
+    width: 40%;
+    border: 2px solid black;
+}
+
+#welcome-text {
+    text-align: center;
+    font-size: 17px;
+}
+
+
+/* Blog */
+
 .blog-post {
     width: 95%;
 }
@@ -38,4 +61,33 @@
     background-color: #e6e8b0;
     border:  none;
     height: 1px;
+}
+
+
+/* Photos */
+
+.photo-container {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    align-items: center;
+}
+
+#water-tower-img {
+    width: 500px;
+}
+
+#mountain-light-img {
+    width: 500px;
+}
+
+#tree-on-tree-img {
+    width: 500px;
+}
+
+
+/* About */
+
+#yoyo {
+    width: 15%;
 }

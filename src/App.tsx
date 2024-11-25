@@ -14,7 +14,6 @@ export default function App() {
   return (
   <MantineProvider theme={theme}>
         <BrowserRouter>
-          <LeafOverlay></LeafOverlay>
           <SimpleHeader></SimpleHeader>
           <div className="content-wrapper">
             <Flex className="inner-content">

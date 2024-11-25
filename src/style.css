@@ -27,6 +27,10 @@
 
 /* Home */
 
+.leaf-overlay {
+    top: -20px;
+}
+
 .welcome-contents {
     align-items: center;
     display: flex;
@@ -54,7 +58,7 @@
 
 .blog-date {
     /* color: #869c3a; */
-    font-style: italic;
+    /* font-style: italic; */
 }
 
 .post-divider {

@@ -35,7 +35,7 @@ export default function SimpleHeader() {
       <Flex className="inner">
         <a className="title" href="/">
             <img 
-                src="/static/assets/yoodimigo.png"
+                src="/static/assets/yoodimigo-transparent.png"
                 className="image"
             />
         </a>

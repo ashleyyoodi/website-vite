@@ -59,7 +59,7 @@ export function Music() {
             <div>
                 <Accordion className="accordian" transitionDuration={1000}>
                     <Accordion.Item className="accordian-item" key="like" value="like">
-                        <Accordion.Control className="accordian-label">&#119136; Music I like</Accordion.Control>
+                        <Accordion.Control className="accordian-label">&#119136; I like</Accordion.Control>
                         <Accordion.Panel className="accordian-content">
                             <div className="embedded-media-container">
                                 { youtubeEmbeds }
@@ -67,7 +67,7 @@ export function Music() {
                         </Accordion.Panel>
                     </Accordion.Item>
                     <Accordion.Item className="accordian-item" key="make" value="make">
-                        <Accordion.Control className="accordian-label">&#119134; Music I make</Accordion.Control>
+                        <Accordion.Control className="accordian-label">&#119134; I make</Accordion.Control>
                         <Accordion.Panel className="accordian-content">
                             <div className="embedded-media-container">
                                 { soundcloudEmbeds }

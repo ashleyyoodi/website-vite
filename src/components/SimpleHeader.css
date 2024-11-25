@@ -3,8 +3,8 @@
   top: 0;
 
   height: rem(68px);
-  background-color: var(--mantine-color-body);
-  border-bottom: rem(1px) solid light-dark(var(--mantine-color-gray-3), var(--mantine-color-dark-4));
+  background-color: #edeed9;;
+  /* border-bottom: 1px solid #7d1d06; */
   padding: 5px 20px 5px 20px;
   display: flex;
   align-items: center;

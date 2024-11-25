@@ -14,6 +14,11 @@ export default function() {
             setIsLoading(false);
         });
     }, []);
+
+    function formatDate(date: Date) {
+        let formattedDate = new Date(date).toLocaleString();
+        return formattedDate;
+    }
     
     return (
         <div>
@@ -23,6 +28,8 @@ export default function() {
                 messages.map((message) => (
                     <div className = "blog-post">
                         <Text>
+                            <span className="blog-date">{formatDate(message.created_date)}</span>
+                            <br />
                             {message.text}
                         </Text>
                         <br />

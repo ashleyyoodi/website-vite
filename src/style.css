@@ -28,3 +28,8 @@
 .blog-post {
     width: 95%;
 }
+
+.blog-date {
+    color: #869c3a;
+    font-weight: bold;
+}

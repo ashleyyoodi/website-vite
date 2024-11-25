@@ -7,7 +7,7 @@ export default function LeafOverlay() {
 
     useEffect(() => {
         const generateLeaves = () => {
-            const numLeaves = 10;
+            const numLeaves = 7;
             const newLeaves = [];
             for(let i=0; i<numLeaves; i++) {
                 newLeaves.push({

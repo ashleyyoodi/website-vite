@@ -2,7 +2,7 @@
   position: sticky;
   top: 0;
 
-  height: rem(68px);
+  height: 68px;
   background-color: #edeed9;;
   /* border-bottom: 1px solid #7d1d06; */
   padding: 5px 20px 5px 20px;
@@ -59,7 +59,7 @@
   font-weight: 500;
 
   @mixin hover {
-    background-color: light-dark(var(--mantine-color-gray-0), var(--mantine-color-dark-6));
+    background-color: #e6e8b0;
   }
 
   [data-mantine-color-scheme] &[data-active] {

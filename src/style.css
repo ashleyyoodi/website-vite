@@ -1,4 +1,22 @@
+html, body {
+    display: flex;
+    flex-direction: column;
+    margin:0;
+    padding:0;
+    height:100%;
+}
+
+#root {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    height: auto;
+}
+
 .content-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 100%;
     height: 100%;
     padding: 23px;
@@ -8,8 +26,9 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
-    width: 95%;
+    width: 100%;
     height: 100%;
+    padding: 0 20px 0 20px;
 }
 
 .page-header {
@@ -32,7 +51,7 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
-    padding-top: 20px;
+    padding-top: 30px;
 }
 
 #welcome-image {
@@ -120,6 +139,8 @@
 .photo-container {
     display: flex;
     flex-direction: column;
+    width: 100%;
+    height: 100%;
     gap: 50px;
     align-items: center;
 }

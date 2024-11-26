@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Group, Burger, Flex } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
-import './SimpleHeader.css';
+import './Header.css';
 import { Link } from 'react-router-dom';
 
 const links = [
@@ -12,7 +12,7 @@ const links = [
   { link: '/about', label: 'About' }
 ];
 
-export default function SimpleHeader() {
+export default function Header() {
   const [opened, { toggle }] = useDisclosure(false);
   const [active, setActive] = useState(findActivePage());
 

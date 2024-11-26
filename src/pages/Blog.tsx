@@ -5,9 +5,11 @@ export default function() {
     const [isLoading, setIsLoading] = useState(false);
     const [messages, setMessages] = useState<any[]>([]);
 
+    const blogPostUrl = import.meta.env.VITE_BLOG_POST_URL;
+
     useEffect(() => {
         setIsLoading(true);
-        fetch('https://website-backend-beta-bay.vercel.app/blog-posts')
+        fetch(blogPostUrl)
         .then(response => response.json())
         .then(data => {
             setMessages(data);

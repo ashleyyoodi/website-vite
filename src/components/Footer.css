@@ -5,7 +5,23 @@
     flex-direction: column;
 }
 
-.links {
+.login {
     margin-left: auto;
     margin-right: 32px;
 }
+
+.login > button {
+    background-color: white;
+    color: #cacac6;
+    font-size: 16px;
+}
+
+/* .links {
+    margin-left: auto;
+    margin-right: 32px;
+}
+
+.links > a {
+    font-size: 16px;
+    color: #cacac6 !important;
+} */

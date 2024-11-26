@@ -5,7 +5,7 @@ export default function() {
     const [isLoading, setIsLoading] = useState(false);
     const [messages, setMessages] = useState<any[]>([]);
 
-    const blogPostUrl = import.meta.env.VITE_BLOG_POST_URL;
+    const blogPostUrl = import.meta.env.VITE_API_URL + "/blog-posts";
 
     useEffect(() => {
         setIsLoading(true);

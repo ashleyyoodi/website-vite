@@ -8,7 +8,7 @@ import Home from "./pages/Home.js";
 import About from "./pages/About.js";
 import Photos from "./pages/Photos.js";
 import Blog from "./pages/Blog.js";
-import { Music } from "./pages/Music.js";
+import Music from "./pages/Music.js";
 import { Footer } from "./components/Footer.js";
 
 export default function App() {

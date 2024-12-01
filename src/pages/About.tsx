@@ -1,6 +1,6 @@
 import { Text } from "@mantine/core"
 
-export default function() {
+export default function About() {
     return (
         <div>
             <h2 className="page-header">About</h2>

@@ -1,7 +1,7 @@
 import { Loader, Text } from "@mantine/core";
 import { useEffect, useState } from "react";
 
-export default function() {
+export default function Blog() {
     const [isLoading, setIsLoading] = useState(false);
     const [messages, setMessages] = useState<any[]>([]);
 

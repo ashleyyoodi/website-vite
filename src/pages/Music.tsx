@@ -37,7 +37,7 @@ const soundcloudLinks = [
         comment: "When I made this little thing, my goal was to break out of the hole of looping that I often fall into and build something up little by little. I enjoyed incorporating some noise into this one for old videogame-style percussion" }
 ]
 
-export function Music() {
+export default function Music() {
     const soundcloudEmbeds = soundcloudLinks.map((link) => (
         <div className="media-embed-container">
             <iframe className="soundcloud-embed" width="40%" height="166" allow="autoplay" frameBorder="no" src={link.link}></iframe>

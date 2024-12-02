@@ -1,16 +1,15 @@
 import { Loader, Text } from "@mantine/core";
 import { useEffect, useState } from "react";
+import { fetchBlogPosts } from "../service/BlogService";
 
 export default function Blog() {
     const [isLoading, setIsLoading] = useState(false);
     const [messages, setMessages] = useState<any[]>([]);
 
-    const blogPostUrl = import.meta.env.VITE_API_URL + "/blog-posts";
 
     useEffect(() => {
         setIsLoading(true);
-        fetch(blogPostUrl)
-        .then(response => response.json())
+        fetchBlogPosts()
         .then(data => {
             setMessages(data);
             setIsLoading(false);

@@ -4,12 +4,13 @@ import "@mantine/core/styles.css";
 import { Flex, MantineProvider} from "@mantine/core";
 import { theme } from "./theme";
 import Header from "./components/Header.js";
-import Home from "./pages/Home.js";
-import About from "./pages/About.js";
-import Photos from "./pages/Photos.js";
-import Blog from "./pages/Blog.js";
-import Music from "./pages/Music.js";
+import Home from "./page/Home.js";
+import About from "./page/About.js";
+import Photos from "./page/Photos.js";
+import Blog from "./page/Blog.js";
+import Music from "./page/Music.js";
 import { Footer } from "./components/Footer.js";
+import { AppCache } from "./cache/AppCache.tsx";
 
 export default function App() {
   return (

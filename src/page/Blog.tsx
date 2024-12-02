@@ -10,10 +10,10 @@ export default function Blog() {
     useEffect(() => {
         setIsLoading(true);
         fetchBlogPosts()
-        .then(data => {
-            setMessages(data);
-            setIsLoading(false);
-        });
+            .then(data => {
+                setMessages(data);
+                setIsLoading(false);
+            });
     }, []);
 
     function formatDate(date: Date) {

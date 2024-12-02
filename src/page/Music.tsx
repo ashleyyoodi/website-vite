@@ -1,9 +1,28 @@
 import { Accordion, Text } from "@mantine/core";
-import youtubeLinks from "../resources/youtubeLinks.json";
-import soundcloudLinks from "../resources/soundcloudLinks.json";
+import { useEffect, useState } from "react";
+import { fetchYoutubeLinks } from "../service/YoutubeService";
+import { fetchSoundCloudLinks } from "../service/SoundCloudService";
 
 export default function Music() {
-    const soundcloudEmbeds = soundcloudLinks.map((link) => (
+
+    const [youtubeLinks, setYoutubbeLinks] = useState<any[]>([]);
+    const [soundCloudLinks, setSoundCloudLinks] = useState<any[]>([]);
+
+    useEffect(() => {
+        fetchYoutubeLinks()
+            .then(data => {
+                setYoutubbeLinks(data);
+            })
+    }, []);
+
+    useEffect(() => {
+        fetchSoundCloudLinks()
+            .then(data => {
+                setSoundCloudLinks(data);
+            })
+    }, []);
+
+    const soundCloudEmbeds = soundCloudLinks.map((link) => (
         <div className="media-embed-container">
             <iframe className="soundcloud-embed" width="40%" height="166" allow="autoplay" frameBorder="no" src={link.link}></iframe>
             <Text className="music-comment">{link.comment}</Text>
@@ -35,7 +54,7 @@ export default function Music() {
                         <Accordion.Control className="accordian-label">&#119134; I make</Accordion.Control>
                         <Accordion.Panel className="accordian-content">
                             <div className="embedded-media-container">
-                                { soundcloudEmbeds }
+                                { soundCloudEmbeds }
                             </div>
                         </Accordion.Panel>
                     </Accordion.Item>

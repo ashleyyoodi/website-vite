@@ -1,6 +1,7 @@
 import { PasswordInput, Popover, UnstyledButton } from '@mantine/core';
 import './Footer.css';
 import React, { useEffect } from 'react';
+import { checkAdminAuthorized } from '../service/UserService';
 
 // const links = [
 //   { link: '#', label: 'Contact' },
@@ -21,8 +22,7 @@ export function Footer() {
 //     </Anchor>
 //   ));
 
-  const adminAuthorizeUrl = import.meta.env.VITE_API_URL + "/admin/authorize";
-  const passwordInput = React.useRef<HTMLInputElement>(null);
+  const passwordInputRef = React.useRef<HTMLInputElement>(null);
 
   return (
     <div className="footer">
@@ -36,7 +36,7 @@ export function Footer() {
                     </Popover.Target>
                     <Popover.Dropdown>
                         <PasswordInput 
-                            ref={passwordInput}
+                            ref={passwordInputRef}
                             label="Password" 
                             placeholder="" 
                             size="xs" 
@@ -51,16 +51,13 @@ export function Footer() {
 
   function onKeyDown(e: { key: string; }) {
     if (e.key === "Enter") {
-        checkPassword(passwordInput.current?.value);
+        checkPassword(passwordInputRef.current?.value);
     }
   }
 
   function checkPassword(input: string | undefined) {
-        fetch(adminAuthorizeUrl + "?input=" + input)
-            .then(response => response.json())
-            .then(data => {
-                console.log(data);
-            });
+    sessionStorage.setItem("isAuthorized", JSON.stringify(checkAdminAuthorized(input)));
+    location.reload();
   }
 
 }

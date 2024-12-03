@@ -22,15 +22,15 @@ export default function Music() {
             })
     }, []);
 
-    const soundCloudEmbeds = soundCloudLinks.map((link) => (
-        <div className="media-embed-container">
+    const soundCloudEmbeds = soundCloudLinks.map((link, index) => (
+        <div className="media-embed-container" key={index}>
             <iframe className="soundcloud-embed" width="40%" height="166" allow="autoplay" frameBorder="no" src={link.link}></iframe>
             <Text className="music-comment">{link.comment}</Text>
         </div>
     ));
 
-    const youtubeEmbeds = youtubeLinks.map((link) => (
-        <div className="media-embed-container">
+    const youtubeEmbeds = youtubeLinks.map((link, index) => (
+        <div className="media-embed-container" key={index}>
             <iframe width="40%" height="315" src={link.link} title="YouTube video player" frameBorder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
             <Text className="music-comment">{link.comment}</Text>
         </div>

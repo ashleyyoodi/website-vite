@@ -69,8 +69,78 @@ html, body {
 
 /* Blog */
 
+#blog-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+#new-post-button {
+    background-color: #8c9b47;
+    color: white;
+    display: block;
+    line-height: 1;
+    padding: calc(0.5rem * var(--mantine-scale)) calc(0.75rem * var(--mantine-scale));
+    border-radius: var(--mantine-radius-sm);
+    text-decoration: none;
+    font-size: var(--mantine-font-size-sm);
+    font-weight: 500;
+
+    @mixin hover {
+        background-color: #e6e8b0;
+    }
+
+}
+
+#new-post-modal-title {
+    font-family: 'Times New Roman', Times, serif;
+}
+
+#new-post-modal-body {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+
+#new-post-modal-body > * {
+    align-self: stretch;
+}
+
+#new-post-modal-body .mantine-Textarea-input {
+    font-family: 'Times New Roman', Times, serif;
+    line-height: 1;
+    font-size: var(--mantine-font-size-md);
+}
+
+#post-submit-button {
+    background-color: #8c9b47;
+    color: white;
+    display: block;
+    line-height: 1;
+    width:fit-content;
+    padding: calc(0.5rem * var(--mantine-scale)) calc(0.75rem * var(--mantine-scale));
+    border-radius: var(--mantine-radius-sm);
+    text-decoration: none;
+    font-size: var(--mantine-font-size-sm);
+    font-weight: 500;
+    align-self: center;
+
+    @mixin hover {
+        background-color: #e6e8b0;
+    }
+}
+
 .blog-post {
     width: 100%;
+}
+
+.blog-post > p {
+    display: block;
+    white-space: pre-wrap;
+    word-wrap: break-word;
 }
 
 .blog-date {

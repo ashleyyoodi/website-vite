@@ -17,7 +17,8 @@ export default function Blog() {
     }, []);
 
     function formatDate(date: Date) {
-        let formattedDate = new Date(date).toLocaleString("end-US", {
+        let formattedDate = new Date(date).toLocaleString("en-US", {
+                timeZone: "America/Los_Angeles",
                 minute: "numeric",
                 hour: "numeric",
                 day: "numeric",

@@ -22,6 +22,7 @@ export function Footer() {
 //     </Anchor>
 //   ));
 
+  const isLoggedIn = sessionStorage.getItem("isAuthorized");
   const passwordInputRef = React.useRef<HTMLInputElement>(null);
 
   return (
@@ -30,7 +31,10 @@ export function Footer() {
         {
             /* <Group className="links">{items}</Group> */
             <div className='login'>
-                <Popover width={300} trapFocus position="bottom" withArrow shadow="md">
+              {
+                isLoggedIn ?
+                <p>Logged In</p>
+                : <Popover width={300} trapFocus position="bottom" withArrow shadow="md">
                     <Popover.Target>
                         <UnstyledButton>Login</UnstyledButton>
                     </Popover.Target>
@@ -43,6 +47,7 @@ export function Footer() {
                             onKeyDown={onKeyDown}/>
                     </Popover.Dropdown>
                 </Popover>
+              }
             </div>
         }
       </div>

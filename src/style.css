@@ -12,6 +12,7 @@ html, body {
     flex-grow: 1;
     height: auto;
     font-family:'Times New Roman', Times, serif;
+    background-color: #f9f7f3;
 }
 
 .content-wrapper {
@@ -98,8 +99,11 @@ html, body {
 
 .accordian-label {
     font-size: 20px;
-    background-color: #e4e4e4;
+    background-color: #ddd6ca;
 
+    @mixin hover {
+        background-color: #cac5bd;
+    }
 }
 
 .accordian-content {

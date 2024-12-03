@@ -13,7 +13,7 @@
 .login > button {
     /* background-color: white; */
     color: #cacac6;
-    font-size: 16px;
+    font-size: var(--mantine-font-size-sm);
 }
 
 /* .links {

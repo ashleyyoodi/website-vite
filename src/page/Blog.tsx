@@ -87,23 +87,27 @@ export default function Blog() {
                             <br />
                             <div className="blog-post-header">
                                 <span className="blog-date">{formatDate(message.created_date)}</span>
-                                <div className="blog-post-button-container">
-                                    <ActionIcon 
-                                        className="blog-post-button" 
-                                        variant="default" 
-                                        size={20}
-                                    >
-                                        <IconEdit></IconEdit>
-                                    </ActionIcon>
-                                    <ActionIcon 
-                                        className="blog-post-button" 
-                                        variant="default" 
-                                        size={20}
-                                        onClick={() => {deletePost(message.blog_post_id);}}
-                                    >
-                                        <IconTrash></IconTrash>
-                                    </ActionIcon>
-                                </div>
+                                { 
+                                    isLoggedIn ?
+                                        <div className="blog-post-button-container">
+                                        <ActionIcon 
+                                            className="blog-post-button" 
+                                            variant="default" 
+                                            size={20}
+                                        >
+                                            <IconEdit></IconEdit>
+                                        </ActionIcon>
+                                        <ActionIcon 
+                                            className="blog-post-button" 
+                                            variant="default" 
+                                            size={20}
+                                            onClick={() => {deletePost(message.blog_post_id);}}
+                                        >
+                                            <IconTrash></IconTrash>
+                                        </ActionIcon>
+                                    </div>
+                                    : null
+                                }
                             </div>
                             <Text>
                                 <br />

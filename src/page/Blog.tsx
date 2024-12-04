@@ -1,6 +1,6 @@
 import { ActionIcon, Button, Loader, Modal, Text, Textarea, TextInput, UnstyledButton } from "@mantine/core";
 import { useEffect, useRef, useState } from "react";
-import { createBlogPost, fetchBlogPosts } from "../service/BlogService";
+import { createBlogPost, deleteBlogPost, fetchBlogPosts } from "../service/BlogService";
 import { useDisclosure } from "@mantine/hooks";
 import { IconEdit, IconTrash } from "@tabler/icons-react";
 
@@ -45,6 +45,11 @@ export default function Blog() {
             .then(close);
     }
 
+    function deletePost(id: number) {
+        deleteBlogPost(id)
+            .then(fetchPosts);
+    }
+
     return (
         <div>
             <div id="blog-header">
@@ -78,20 +83,29 @@ export default function Blog() {
             <div>
                 { 
                     messages.map((message, index) => (
-                        <div className = "blog-post" key={index}>
+                        <div className = "blog-post" key={message.blog_post_id}>
                             <br />
-                            <Text>
-                                <div className="blog-post-header">
-                                    <span className="blog-date">{formatDate(message.created_date)}</span>
-                                    <div className="blog-post-button-container">
-                                        <ActionIcon className="blog-post-button" variant="default" size={20}>
-                                            <IconEdit></IconEdit>
-                                        </ActionIcon>
-                                        <ActionIcon className="blog-post-button" variant="default" size={20}>
-                                            <IconTrash></IconTrash>
-                                        </ActionIcon>
-                                    </div>
+                            <div className="blog-post-header">
+                                <span className="blog-date">{formatDate(message.created_date)}</span>
+                                <div className="blog-post-button-container">
+                                    <ActionIcon 
+                                        className="blog-post-button" 
+                                        variant="default" 
+                                        size={20}
+                                    >
+                                        <IconEdit></IconEdit>
+                                    </ActionIcon>
+                                    <ActionIcon 
+                                        className="blog-post-button" 
+                                        variant="default" 
+                                        size={20}
+                                        onClick={() => {deletePost(message.blog_post_id);}}
+                                    >
+                                        <IconTrash></IconTrash>
+                                    </ActionIcon>
                                 </div>
+                            </div>
+                            <Text>
                                 <br />
                                 {message.text}
                             </Text>

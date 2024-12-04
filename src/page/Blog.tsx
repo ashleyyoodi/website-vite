@@ -1,16 +1,18 @@
 import { ActionIcon, Button, Loader, Modal, Text, Textarea, TextInput, UnstyledButton } from "@mantine/core";
 import { useEffect, useRef, useState } from "react";
-import { createBlogPost, deleteBlogPost, fetchBlogPosts } from "../service/BlogService";
+import { createBlogPost, deleteBlogPost, editBlogPost, fetchBlogPosts } from "../service/BlogService";
 import { useDisclosure } from "@mantine/hooks";
 import { IconEdit, IconTrash } from "@tabler/icons-react";
 
 export default function Blog() {
     const [isLoading, setIsLoading] = useState(false);
-    const [messages, setMessages] = useState<any[]>([]);
+    const [blogPosts, setBlogPosts] = useState<any[]>([]);
     const isLoggedIn = sessionStorage.getItem("isAuthorized");
     const [opened, {open, close}] = useDisclosure(false);
+    const [editedPost, setEditedPost] = useState<any>(null);
+    const [postText, setPostText] = useState('');
 
-    const newPostRef = useRef<HTMLTextAreaElement>(null);
+    const postTextAreaRef = useRef<HTMLTextAreaElement>(null);
 
     useEffect(() => {
         setIsLoading(true);
@@ -20,7 +22,7 @@ export default function Blog() {
     function fetchPosts() {
         fetchBlogPosts()
             .then(data => {
-                setMessages(data);
+                setBlogPosts(data);
                 setIsLoading(false);
             });
     }
@@ -38,16 +40,37 @@ export default function Blog() {
         return formattedDate;
     }
 
-    function submitPost() {
-        let text = newPostRef.current?.value;
-        createBlogPost(text)
+    function submitPost(id: number | undefined) {
+        let text = postTextAreaRef.current?.value;
+        if (id) {
+            editBlogPost(id, text)
             .then(fetchPosts)
             .then(close);
+        } else {
+            createBlogPost(text)
+                .then(fetchPosts)
+                .then(close);
+        }
     }
 
     function deletePost(id: number) {
         deleteBlogPost(id)
             .then(fetchPosts);
+    }
+
+    function closePostModal() {
+        setPostText('');
+        setEditedPost(null);
+        close();
+    }
+
+    function openEditPostModal(id: number) {
+        let post = blogPosts.find((blogPost) =>
+            blogPost.blog_post_id == id
+        );
+        setPostText(post.text);
+        setEditedPost(post);
+        open();
     }
 
     return (
@@ -65,28 +88,30 @@ export default function Blog() {
                         : null
                 }
             </div>
-            <Modal id="new-post-modal" opened={opened} onClose={close} title="New Blog Post" size="50%" centered>
+            <Modal id="new-post-modal" opened={opened} onClose={closePostModal} title={editedPost ? "Edit Blog Post" : "New Blog Post"} size="50%" centered>
                 <Textarea
-                    ref={newPostRef}
+                    ref={postTextAreaRef}
                     placeholder="text"
                     autosize
                     minRows={10}
                     size="lg"
+                    value={postText}
+                    onChange={(event) => setPostText(event.currentTarget.value)}
                 />
                 <UnstyledButton 
                     id="post-submit-button"
-                    onClick={submitPost}
+                    onClick={() => {submitPost(editedPost ? editedPost.blog_post_id : null)}}
                 >
                     Submit
                 </UnstyledButton>
             </Modal>
             <div>
                 { 
-                    messages.map((message, index) => (
-                        <div className = "blog-post" key={message.blog_post_id}>
+                    blogPosts.map((blogPost, index) => (
+                        <div className = "blog-post" key={blogPost.blog_post_id}>
                             <br />
                             <div className="blog-post-header">
-                                <span className="blog-date">{formatDate(message.created_date)}</span>
+                                <span className="blog-date">{formatDate(blogPost.created_date)}</span>
                                 { 
                                     isLoggedIn ?
                                         <div className="blog-post-button-container">
@@ -94,6 +119,7 @@ export default function Blog() {
                                             className="blog-post-button" 
                                             variant="default" 
                                             size={20}
+                                            onClick={() => {openEditPostModal(blogPost.blog_post_id)}}
                                         >
                                             <IconEdit></IconEdit>
                                         </ActionIcon>
@@ -101,7 +127,7 @@ export default function Blog() {
                                             className="blog-post-button" 
                                             variant="default" 
                                             size={20}
-                                            onClick={() => {deletePost(message.blog_post_id);}}
+                                            onClick={() => {deletePost(blogPost.blog_post_id);}}
                                         >
                                             <IconTrash></IconTrash>
                                         </ActionIcon>
@@ -111,11 +137,11 @@ export default function Blog() {
                             </div>
                             <Text>
                                 <br />
-                                {message.text}
+                                {blogPost.text}
                             </Text>
                             <br />
                             {
-                                index !== messages.length-1 ? <hr className="post-divider" /> : null
+                                index !== blogPosts.length-1 ? <hr className="post-divider" /> : null
                             }
                         </div>
                     ))

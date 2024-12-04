@@ -59,9 +59,9 @@ export default function Blog() {
     }
 
     function closePostModal() {
+        close();
         setPostText('');
         setEditedPost(null);
-        close();
     }
 
     function openEditPostModal(id: number) {

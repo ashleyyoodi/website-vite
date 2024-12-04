@@ -148,6 +148,24 @@ html, body {
     /* font-style: italic; */
 }
 
+.blog-post-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.blog-post-button-container {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.blog-post-button {
+    background: none;
+    border: none;
+}
+
 .post-divider {
     background-color: #e6e8b0;
     border:  none;

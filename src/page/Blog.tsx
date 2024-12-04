@@ -1,7 +1,8 @@
-import { Button, Loader, Modal, Text, Textarea, TextInput, UnstyledButton } from "@mantine/core";
+import { ActionIcon, Button, Loader, Modal, Text, Textarea, TextInput, UnstyledButton } from "@mantine/core";
 import { useEffect, useRef, useState } from "react";
 import { createBlogPost, fetchBlogPosts } from "../service/BlogService";
 import { useDisclosure } from "@mantine/hooks";
+import { IconEdit, IconTrash } from "@tabler/icons-react";
 
 export default function Blog() {
     const [isLoading, setIsLoading] = useState(false);
@@ -80,8 +81,18 @@ export default function Blog() {
                         <div className = "blog-post" key={index}>
                             <br />
                             <Text>
-                                <span className="blog-date">{formatDate(message.created_date)}</span>
-                                <br /><br />
+                                <div className="blog-post-header">
+                                    <span className="blog-date">{formatDate(message.created_date)}</span>
+                                    <div className="blog-post-button-container">
+                                        <ActionIcon className="blog-post-button" variant="default" size={20}>
+                                            <IconEdit></IconEdit>
+                                        </ActionIcon>
+                                        <ActionIcon className="blog-post-button" variant="default" size={20}>
+                                            <IconTrash></IconTrash>
+                                        </ActionIcon>
+                                    </div>
+                                </div>
+                                <br />
                                 {message.text}
                             </Text>
                             <br />

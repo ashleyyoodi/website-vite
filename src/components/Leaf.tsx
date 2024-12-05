@@ -11,7 +11,7 @@ export default function Leaf(props: { fallStyle: any, swayStyle: any, rotateStyl
                 style={props.swayStyle}
             >
                 <img 
-                    src="/static/assets/brown-leaf.png"
+                    src="/static/assets/oak-leaf.png"
                     className="leaf-rotate leaf"
                     style={props.rotateStyle}
                 />

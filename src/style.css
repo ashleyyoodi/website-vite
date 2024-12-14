@@ -103,10 +103,17 @@ html, body {
     flex-direction: column;
     gap: 10px;
     align-items: center;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 #new-post-modal-body > * {
     align-self: stretch;
+}
+
+#new-post-modal-body .mantine-TextInput-input {
+    font-family: 'Times New Roman', Times, serif;
+    line-height: 1;
+    font-size: var(--mantine-font-size-md);
 }
 
 #new-post-modal-body .mantine-Textarea-input {

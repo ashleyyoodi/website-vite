@@ -12,9 +12,12 @@ export default function About() {
                 />
                 <br /><br />  
                 <Text>
-                    Hello, my name is Yoodi, and I am learning to use React. This has been a really fun experience so far-- I've always wanted a place to share my thoughts and interests outside of the ecosystem of social media!
+                    Hello, my name is Yoodi!
                     <br /><br />
-                    I like music, climbing, surfing, making, tinkering, puzzling, solving, eating, and long walks on the beach &#9786;
+                    I originally started building this personal website as a way to learn React. 
+                    However, I now recognize the additional value of having a space to share my thoughts outside of the ecosystem of social media.
+                    I like the idea that anything I write here will not be pushed onto anyone's feed... it is just here....
+                    You can take a look, or you can not take a look &#9786;
                 </Text>
             </div>
         </div>

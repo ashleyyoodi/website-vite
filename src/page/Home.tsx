@@ -11,7 +11,7 @@ export default function Home() {
             <LeafOverlay></LeafOverlay>
             <div className="welcome-contents">
                 {
-                    randNum < 0.5 ?
+                    randNum < 0.9 ?
                         <img 
                             id="welcome-image"
                             src="static/assets/walking.jpg"

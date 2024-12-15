@@ -5,21 +5,21 @@ export const fetchBlogPosts = async () => {
     return res.json();
 };
 
-export const createBlogPost = async (text: string | undefined) => {
+export const createBlogPost = async (text: string | undefined, isDraft: boolean | undefined, isSubmitting: boolean | undefined) => {
     const requestOptions = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({text: text})
+        body: JSON.stringify({text: text, isDraft: isDraft, isSubmitting: isSubmitting})
     };
     const res = await fetch(NEW_BLOG_POST_URL, requestOptions);
     return res.json();
 }
 
-export const editBlogPost = async (id: number, text: string | undefined) => {
+export const editBlogPost = async (id: number, text: string | undefined, isDraft: boolean | undefined, isSubmitting: boolean | undefined, lastSubmittedDate: Date | undefined) => {
     const requestOptions = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({text: text})
+        body: JSON.stringify({text: text, isDraft: isDraft, isSubmitting: isSubmitting, lastSubmittedDate: lastSubmittedDate})
     };
     const res = await fetch(EDIT_BLOG_POST_URL + id, requestOptions);
     return res.json();

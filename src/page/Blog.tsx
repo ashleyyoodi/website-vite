@@ -1,4 +1,4 @@
-import { ActionIcon, Button, Loader, Modal, Text, Textarea, TextInput, UnstyledButton } from "@mantine/core";
+import { ActionIcon, Button, Checkbox, Loader, Modal, Text, Textarea, TextInput, UnstyledButton } from "@mantine/core";
 import { useEffect, useRef, useState } from "react";
 import { createBlogPost, deleteBlogPost, editBlogPost, fetchBlogPosts } from "../service/BlogService";
 import { useDisclosure } from "@mantine/hooks";
@@ -11,8 +11,10 @@ export default function Blog() {
     const [opened, {open, close}] = useDisclosure(false);
     const [editedPost, setEditedPost] = useState<any>(null);
     const [postText, setPostText] = useState('');
+    const [postIsDraft, setPostIsDraft] = useState(true);
 
     const postTextAreaRef = useRef<HTMLTextAreaElement>(null);
+    const draftCheckboxRef = useRef<HTMLInputElement>(null);
 
     useEffect(() => {
         setIsLoading(true);
@@ -42,14 +44,18 @@ export default function Blog() {
 
     function submitPost(id: number | undefined) {
         let text = postTextAreaRef.current?.value;
+        let isDraft = draftCheckboxRef.current?.checked;
+        let isSubmitting = false;
         if (id) {
-            editBlogPost(id, text)
+            isSubmitting = isDraft ? false : (editedPost.draft ? true : false);
+            editBlogPost(id, text, isDraft, isSubmitting, editedPost.submitted_date)
             .then(fetchPosts)
-            .then(close);
+            .then(closePostModal);
         } else {
-            createBlogPost(text)
+            isSubmitting = isDraft ? false : true;
+            createBlogPost(text, isDraft, isSubmitting)
                 .then(fetchPosts)
-                .then(close);
+                .then(closePostModal);
         }
     }
 
@@ -69,6 +75,7 @@ export default function Blog() {
             blogPost.blog_post_id == id
         );
         setPostText(post.text);
+        setPostIsDraft(post.draft);
         setEditedPost(post);
         open();
     }
@@ -98,6 +105,13 @@ export default function Blog() {
                     value={postText}
                     onChange={(event) => setPostText(event.currentTarget.value)}
                 />
+                <Checkbox
+                    label="Draft"
+                    ref={draftCheckboxRef}
+                    checked={postIsDraft}
+                    onChange={(event) => setPostIsDraft(event.currentTarget.checked)}
+                >
+                </Checkbox>
                 <UnstyledButton 
                     id="post-submit-button"
                     onClick={() => {submitPost(editedPost ? editedPost.blog_post_id : null)}}
@@ -108,12 +122,44 @@ export default function Blog() {
             <div>
                 { 
                     blogPosts.map((blogPost, index) => (
-                        <div className = "blog-post" key={blogPost.blog_post_id}>
+                        isLoggedIn ?
+                            <div className = "blog-post" key={blogPost.blog_post_id}>
+                                <br />
+                                <div className="blog-post-header">
+                                    <span className="blog-date"><span id="draft-label">{blogPost.draft ? 'DRAFT' : null}</span> {blogPost.submitted_date ? formatDate(blogPost.submitted_date) : null}</span>
+                                            <div className="blog-post-button-container">
+                                            <ActionIcon 
+                                                className="blog-post-button" 
+                                                variant="default" 
+                                                size={20}
+                                                onClick={() => {openEditPostModal(blogPost.blog_post_id)}}
+                                            >
+                                                <IconEdit></IconEdit>
+                                            </ActionIcon>
+                                            <ActionIcon 
+                                                className="blog-post-button" 
+                                                variant="default" 
+                                                size={20}
+                                                onClick={() => {deletePost(blogPost.blog_post_id);}}
+                                            >
+                                                <IconTrash></IconTrash>
+                                            </ActionIcon>
+                                        </div>
+                                </div>
+                                <Text>
+                                    <br />
+                                    {blogPost.text}
+                                </Text>
+                                <br />
+                                {
+                                    index !== blogPosts.length-1 ? <hr className="post-divider" /> : null
+                                }
+                            </div>
+                        : !blogPost.draft ?
+                            <div className = "blog-post" key={blogPost.blog_post_id}>
                             <br />
                             <div className="blog-post-header">
-                                <span className="blog-date">{formatDate(blogPost.created_date)}</span>
-                                { 
-                                    isLoggedIn ?
+                                <span className="blog-date">{formatDate(blogPost.submitted_date)}</span>
                                         <div className="blog-post-button-container">
                                         <ActionIcon 
                                             className="blog-post-button" 
@@ -132,8 +178,6 @@ export default function Blog() {
                                             <IconTrash></IconTrash>
                                         </ActionIcon>
                                     </div>
-                                    : null
-                                }
                             </div>
                             <Text>
                                 <br />
@@ -144,6 +188,7 @@ export default function Blog() {
                                 index !== blogPosts.length-1 ? <hr className="post-divider" /> : null
                             }
                         </div>
+                        : null
                     ))
                 }
                 { isLoading ?

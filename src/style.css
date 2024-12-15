@@ -155,6 +155,11 @@ html, body {
     /* font-style: italic; */
 }
 
+#draft-label {
+    color: #0003c9;
+    font-weight: bold;
+}
+
 .blog-post-header {
     display: flex;
     flex-direction: row;

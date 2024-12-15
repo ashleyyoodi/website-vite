@@ -126,8 +126,8 @@ export default function Blog() {
                             <div className = "blog-post" key={blogPost.blog_post_id}>
                                 <br />
                                 <div className="blog-post-header">
-                                    <span className="blog-date"><span id="draft-label">{blogPost.draft ? 'DRAFT' : null}</span> {blogPost.submitted_date ? formatDate(blogPost.submitted_date) : null}</span>
-                                            <div className="blog-post-button-container">
+                                    <span className="blog-date"><span id="draft-label">{blogPost.draft ? '[Draft]' : null}</span> {blogPost.submitted_date ? formatDate(blogPost.submitted_date) : null}</span>
+                                        <div className="blog-post-button-container">
                                             <ActionIcon 
                                                 className="blog-post-button" 
                                                 variant="default" 
@@ -157,37 +157,37 @@ export default function Blog() {
                             </div>
                         : !blogPost.draft ?
                             <div className = "blog-post" key={blogPost.blog_post_id}>
-                            <br />
-                            <div className="blog-post-header">
-                                <span className="blog-date">{formatDate(blogPost.submitted_date)}</span>
-                                        <div className="blog-post-button-container">
-                                        <ActionIcon 
-                                            className="blog-post-button" 
-                                            variant="default" 
-                                            size={20}
-                                            onClick={() => {openEditPostModal(blogPost.blog_post_id)}}
-                                        >
-                                            <IconEdit></IconEdit>
-                                        </ActionIcon>
-                                        <ActionIcon 
-                                            className="blog-post-button" 
-                                            variant="default" 
-                                            size={20}
-                                            onClick={() => {deletePost(blogPost.blog_post_id);}}
-                                        >
-                                            <IconTrash></IconTrash>
-                                        </ActionIcon>
-                                    </div>
-                            </div>
-                            <Text>
                                 <br />
-                                {blogPost.text}
-                            </Text>
-                            <br />
-                            {
-                                index !== blogPosts.length-1 ? <hr className="post-divider" /> : null
-                            }
-                        </div>
+                                <div className="blog-post-header">
+                                    <span className="blog-date">{formatDate(blogPost.submitted_date)}</span>
+                                        <div className="blog-post-button-container">
+                                            <ActionIcon 
+                                                className="blog-post-button" 
+                                                variant="default" 
+                                                size={20}
+                                                onClick={() => {openEditPostModal(blogPost.blog_post_id)}}
+                                            >
+                                                <IconEdit></IconEdit>
+                                            </ActionIcon>
+                                            <ActionIcon 
+                                                className="blog-post-button" 
+                                                variant="default" 
+                                                size={20}
+                                                onClick={() => {deletePost(blogPost.blog_post_id);}}
+                                            >
+                                                <IconTrash></IconTrash>
+                                            </ActionIcon>
+                                        </div>
+                                </div>
+                                <Text>
+                                    <br />
+                                    {blogPost.text}
+                                </Text>
+                                <br />
+                                {
+                                    index !== blogPosts.length-1 ? <hr className="post-divider" /> : null
+                                }
+                            </div>
                         : null
                     ))
                 }

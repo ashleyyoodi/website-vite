@@ -64,6 +64,7 @@ export default function Music() {
     }
 
     return (
+        true ? "Coming Soon" : 
         <div>
             <div id="blog-header">
                 <h2 className="page-header">Music</h2>
